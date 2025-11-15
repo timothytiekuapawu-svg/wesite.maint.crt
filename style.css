@@ -163,4 +163,45 @@ textarea{min-height:120px;resize:vertical}
   .col-right{width:100%}
   .info-footer{flex-direction:column;left:8px;right:8px}
   .bottom-right{right:8px}
+
+  /* ===== Mobile Responsive Fixes ===== */
+@media (max-width:900px){
+  /* Step layout: stack left/right columns */
+  .step-inner {
+    flex-direction: column;
+  }
+  .col-right {
+    width: 100%;
+  }
+
+  /* Footer adjustments */
+  .info-footer {
+    flex-direction: column;   /* stack vertically */
+    position: relative;       /* not fixed, flows below form */
+    z-index: 1;               /* behind form inputs */
+    left: auto;
+    right: auto;
+    bottom: auto;
+    margin-top: 24px;         /* spacing from form */
+    pointer-events: none;     /* prevent blocking inputs */
+  }
+
+  /* Footer columns */
+  .info-col {
+    width: 100%;
+    margin-bottom: 12px;
+    pointer-events: auto;     /* allow links/buttons inside footer to work */
+  }
+
+  /* Bottom right button adjustment */
+  .bottom-right {
+    right: 8px;
+  }
+
+  /* Optional: step inner spacing for small screens */
+  .step-inner {
+    gap: 16px;
+  }
+}
+
 }
