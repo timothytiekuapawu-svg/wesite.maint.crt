@@ -83,35 +83,45 @@
 
       </section>
 
-      <!-- STEP 2 -->
-      <section id="step2" class="step" aria-labelledby="s2" role="group">
-        <h2 id="s2">Step 2 — Job details</h2>
+     <!-- STEP 2 -->
+<section id="step2" class="step">
+  <h2 id="s2">Step 2 — Job Details</h2>
 
-        <label for="user_email">Email</label>
-        <input id="user_email" type="email" placeholder="you@example.com">
+  <div class="step-inner">
+    <!-- Left column -->
+    <div class="col-left">
+      <label for="user_email">Email</label>
+      <input id="user_email" type="email" placeholder="you@example.com">
 
-        <label for="audience_level">Priority Level</label>
-        <select id="audience_level">
-          <option value="">-- Select Priority --</option>
-          <option>Low (Flexible)</option>
-          <option>Medium (2–3 Days)</option>
-          <option>High (Urgent)</option>
-        </select>
+      <label for="audience_level">Priority Level</label>
+      <select id="audience_level">
+        <option value="">-- Select Priority --</option>
+        <option>Low (Flexible)</option>
+        <option>Medium (2–3 Days)</option>
+        <option>High (Urgent)</option>
+      </select>
+    </div>
 
-        <label for="contact_address">Contact Address</label>
-        <input id="contact_address" type="text" placeholder="Your contact address">
+    <!-- Right column -->
+    <div class="col-right">
+      <label for="contact_address">Contact Address</label>
+      <input id="contact_address" type="text" placeholder="Your contact address">
 
-        <label for="preferred_datetime">Preferred Date &amp; Time</label>
-        <input id="preferred_datetime" type="datetime-local">
+      <label for="preferred_datetime">Preferred Date & Time</label>
+      <input id="preferred_datetime" type="datetime-local">
 
-        <label for="message">Describe the Problem</label>
-        <textarea id="message" placeholder="Describe issue..."></textarea>
+      <label for="message">Describe the Problem</label>
+      <textarea id="message" placeholder="Describe issue..."></textarea>
+    </div>
+  </div>
 
-        <div class="step-controls">
-          <button id="back1" class="btn btn-ghost">⬅ Back</button>
-          <button id="toReview" class="btn btn-primary">Review &amp; Send ➡</button>
-        </div>
-      </section>
+  <!-- Step navigation buttons -->
+  <div class="step-controls">
+    <button id="back1" class="btn btn-ghost">⬅ Back</button>
+    <button id="toReview" class="btn btn-primary">Review & Send ➡</button>
+  </div>
+</section>
+
 
       <!-- STEP 3 (REVIEW) -->
       <section id="step3" class="step" aria-labelledby="s3" role="group">

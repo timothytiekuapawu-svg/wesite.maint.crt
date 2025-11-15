@@ -32,6 +32,37 @@ html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe 
 .topbar{position:fixed;top:0;left:0;right:0;z-index:3;padding:18px;text-align:center}
 .top-title{font-weight:800;color:var(--accent1)}
 
+/* ===== STEP 2 spacing improvements ===== */
+#step2 label {
+  display: block;
+  margin-top: 18px;   /* space above each label */
+  margin-bottom: 6px; /* small space below label */
+  font-weight: 700;
+}
+
+#step2 input,
+#step2 select,
+#step2 textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  margin-bottom: 12px; /* space between fields */
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+#step2 .step-controls {
+  margin-top: 24px;   /* more space above the buttons */
+  justify-content: flex-start;
+}
+
+/* Responsive for mobile */
+@media (max-width:900px){
+  #step2 .step-inner { flex-direction: column; }
+  #step2 .col-right { width: 100%; }
+}
+
+
 .step{display:none;padding:90px 6vw 160px 6vw;position:relative;min-height:calc(100vh - 200px);z-index:2}
 .step.active{display:block}
 .step h2{margin:0 0 14px 0;color:var(--accent1)}
