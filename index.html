@@ -83,36 +83,31 @@
 
       </section>
 
-     <!-- STEP 2 -->
+ <!-- STEP 2 -->
 <section id="step2" class="step">
   <h2 id="s2">Step 2 — Job Details</h2>
 
-  <div class="step-inner">
-    <!-- Left column -->
-    <div class="col-left">
-      <label for="user_email">Email</label>
-      <input id="user_email" type="email" placeholder="you@example.com">
+  <div class="step-inner" style="flex-direction: column;">
+    <label for="user_email">Email</label>
+    <input id="user_email" type="email" placeholder="you@example.com">
 
-      <label for="audience_level">Priority Level</label>
-      <select id="audience_level">
-        <option value="">-- Select Priority --</option>
-        <option>Low (Flexible)</option>
-        <option>Medium (2–3 Days)</option>
-        <option>High (Urgent)</option>
-      </select>
-    </div>
+    <label for="audience_level">Priority Level</label>
+    <select id="audience_level">
+      <option value="">-- Select Priority --</option>
+      <option>Low (Flexible)</option>
+      <option>Medium (2–3 Days)</option>
+      <option>High (Urgent)</option>
+    </select>
 
-    <!-- Right column -->
-    <div class="col-right">
-      <label for="contact_address">Contact Address</label>
-      <input id="contact_address" type="text" placeholder="Your contact address">
+    <!-- Fields starting beneath Priority Level -->
+    <label for="contact_address">Contact Address</label>
+    <input id="contact_address" type="text" placeholder="Your contact address">
 
-      <label for="preferred_datetime">Preferred Date & Time</label>
-      <input id="preferred_datetime" type="datetime-local">
+    <label for="preferred_datetime">Preferred Date & Time</label>
+    <input id="preferred_datetime" type="datetime-local">
 
-      <label for="message">Describe the Problem</label>
-      <textarea id="message" placeholder="Describe issue..."></textarea>
-    </div>
+    <label for="message">Describe the Problem</label>
+    <textarea id="message" placeholder="Describe issue..."></textarea>
   </div>
 
   <!-- Step navigation buttons -->
@@ -121,6 +116,7 @@
     <button id="toReview" class="btn btn-primary">Review & Send ➡</button>
   </div>
 </section>
+
 
 
       <!-- STEP 3 (REVIEW) -->

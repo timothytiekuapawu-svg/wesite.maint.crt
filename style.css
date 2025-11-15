@@ -32,6 +32,30 @@ html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe 
 .topbar{position:fixed;top:0;left:0;right:0;z-index:3;padding:18px;text-align:center}
 .top-title{font-weight:800;color:var(--accent1)}
 
+/* ===== STEP 2 spacing (stacked layout) ===== */
+#step2 label {
+  display: block;
+  margin-top: 20px;   /* more space above each label */
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+#step2 input,
+#step2 select,
+#step2 textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  margin-bottom: 16px; /* more space between fields */
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+#step2 .step-controls {
+  margin-top: 30px;   /* extra space before buttons */
+}
+
+
 /* ===== STEP 2 spacing improvements ===== */
 #step2 label {
   display: block;
