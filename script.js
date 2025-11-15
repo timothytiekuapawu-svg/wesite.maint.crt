@@ -193,32 +193,37 @@ editBtn.addEventListener('click', ()=> {
   });
 });
 
-confirmBtn.addEventListener('click', ()=> {
+confirmBtn.addEventListener('click', async () => {
   const raw = sessionStorage.getItem('smartfix_booking');
-  if(!raw){ 
-    alert('No booking found.'); 
-    return; 
+  if (!raw) {
+    alert('No booking found.');
+    return;
   }
-  
+
   const params = JSON.parse(raw);
   sendingEl.style.display = 'inline-block'; // show spinner
 
-  // Send email via EmailJS
-  if(window.emailjs && EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID){
-    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params)
-      .then((response) => {
-        console.log('SUCCESS!', response.status, response.text);
-        sendingEl.style.display = 'none';
-        showResult(true, 'Thanks for booking with SmartFix electricals. We will contact you soon.');
-        sessionStorage.removeItem('smartfix_booking');
-      })
-      .catch((error) => {
-        console.error('FAILED...', error);
-        sendingEl.style.display = 'none';
-        showResult(false, 'There was an error sending your request. Please try again.');
-      });
-    return;
+  try {
+    // Send email using EmailJS v4
+    const response = await emailjs.send(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_TEMPLATE_ID,
+      params
+    );
+
+    console.log('SUCCESS!', response.status, response.text);
+    sendingEl.style.display = 'none';
+    showResult(true, 'Thanks for booking with SmartFix electricals. We will contact you soon.');
+    sessionStorage.removeItem('smartfix_booking');
+  } catch (error) {
+    console.error('FAILED...', error);
+    sendingEl.style.display = 'none';
+    showResult(false, 'There was an error sending your request. Please try again.');
   }
+});
+
+    return;
+  
 
   // fallback: simulate success if EmailJS not configured
   setTimeout(()=>{
