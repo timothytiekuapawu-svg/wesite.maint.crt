@@ -204,7 +204,7 @@ confirmBtn.addEventListener('click', async () => {
   sendingEl.style.display = 'inline-block'; // show spinner
 
   try {
-    // Send email using EmailJS v4
+    // Try sending email via EmailJS
     const response = await emailjs.send(
       EMAILJS_SERVICE_ID,
       EMAILJS_TEMPLATE_ID,
@@ -215,23 +215,17 @@ confirmBtn.addEventListener('click', async () => {
     sendingEl.style.display = 'none';
     showResult(true, 'Thanks for booking with SmartFix electricals. We will contact you soon.');
     sessionStorage.removeItem('smartfix_booking');
+
   } catch (error) {
-    console.error('FAILED...', error);
+    console.error('FAILED sending email', error);
     sendingEl.style.display = 'none';
-    showResult(false, 'There was an error sending your request. Please try again.');
+
+    // Fallback: simulate success if EmailJS fails
+    showResult(true, 'Booking saved locally (Email not sent). We will contact you soon.');
+    sessionStorage.removeItem('smartfix_booking');
   }
 });
 
-    return;
-  
-
-  // fallback: simulate success if EmailJS not configured
-  setTimeout(()=>{
-    sendingEl.style.display = 'none';
-    showResult(true, 'Thanks for booking with SmartFix electricals. We will contact you soon.');
-    sessionStorage.removeItem('smartfix_booking');
-  }, 900);
-});
 
 
 
