@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SmartFix Electricals — Booking</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- BACKGROUNDS -->
+  <!-- Welcome video (only visible on welcome screen) -->
+  <video id="welcomeVideo" class="bg-video" autoplay muted loop playsinline disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback">
+    <source src="welcome.mp4" type="video/mp4">
+    <!-- fallback text -->
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Slideshow images (visible on booking screens) -->
+  <div id="slideshow" class="slideshow" aria-hidden="true">
+    <img src="IMAGE1.jpg" class="slide active" alt="">
+    <img src="IMAGE2.jpg" class="slide" alt="">
+    <img src="IMAGE3.jpg" class="slide" alt="">
+    <img src="IMAGE4.jpg" class="slide" alt="">
+  </div>
+
+  <!-- overlay for contrast -->
+  <div class="overlay" aria-hidden="true"></div>
+
+  <!-- APP CONTAINER -->
+  <div class="app" role="application" aria-label="SmartFix booking application">
+
+    <!-- WELCOME SCREEN -->
+    <section id="welcomeScreen" class="screen welcome-screen" aria-labelledby="welcomeTitle" role="region">
+      <h1 id="welcomeTitle" class="company-title">SmartFix Electricals</h1>
+      <div id="liveDateTime" class="datetime" aria-live="polite"></div>
+      <button id="welcomeBtn" class="btn btn-primary" aria-controls="bookingArea">Welcome</button>
+    </section>
+
+    <!-- BOOKING AREA (hidden until Welcome pressed) -->
+    <main id="bookingArea" class="screen booking-screen" role="main" aria-live="polite" aria-hidden="true">
+
+      <!-- Top header -->
+      <header class="topbar" role="banner"><div class="top-title">SmartFix Electricals</div></header>
+
+      <!-- STEP 1 -->
+      <section id="step1" class="step active" aria-labelledby="s1" role="group">
+        <h2 id="s1">Step 1 — Who you are &amp; what you need</h2>
+        <div class="step-inner">
+          <div class="col-left">
+            <label for="user_name">Full Name</label>
+            <input id="user_name" type="text" placeholder="e.g., John Doe" autocomplete="name">
+
+            <label for="user_phone">Phone Number</label>
+            <input id="user_phone" type="tel" placeholder="+233 54 389 9210" autocomplete="tel">
+
+            <label for="maintenance_type">Type of Maintenance</label>
+            <select id="maintenance_type">
+              <option value="">-- Select --</option>
+              <option>Wiring fault / repair</option>
+              <option>Rewiring / new connection</option>
+              <option>Lighting / fan installation</option>
+              <option>Socket outlet installation</option>
+              <option>Fuse box / circuit breaker</option>
+              <option>Generator / inverter</option>
+              <option>Appliance connection</option>
+              <option>Solar PV / battery system</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="col-right">
+            <button id="next1" class="btn btn-primary next-btn" aria-label="Next to step 2">Next ➡</button>
+          </div>
+        </div>
+
+        <!-- WhatsApp centered below (only Step 1) -->
+        <div class="bottom-center">
+          <a id="quickWhats" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">💬 Quick WhatsApp</a>
+        </div>
+
+        <!-- Back to welcome bottom-right -->
+        <div class="bottom-right">
+          <button id="backToWelcome" class="btn btn-ghost">⬅ Back to Welcome</button>
+        </div>
+      </section>
+
+      <!-- STEP 2 -->
+      <section id="step2" class="step" aria-labelledby="s2" role="group">
+        <h2 id="s2">Step 2 — Job details</h2>
+
+        <label for="user_email">Email</label>
+        <input id="user_email" type="email" placeholder="you@example.com">
+
+        <label for="audience_level">Priority Level</label>
+        <select id="audience_level">
+          <option value="">-- Select Priority --</option>
+          <option>Low (Flexible)</option>
+          <option>Medium (2–3 Days)</option>
+          <option>High (Urgent)</option>
+        </select>
+
+        <label for="contact_address">Contact Address</label>
+        <input id="contact_address" type="text" placeholder="Your contact address">
+
+        <label for="preferred_datetime">Preferred Date &amp; Time</label>
+        <input id="preferred_datetime" type="datetime-local">
+
+        <label for="message">Describe the Problem</label>
+        <textarea id="message" placeholder="Describe issue..."></textarea>
+
+        <div class="step-controls">
+          <button id="back1" class="btn btn-ghost">⬅ Back</button>
+          <button id="toReview" class="btn btn-primary">Review &amp; Send ➡</button>
+        </div>
+      </section>
+
+      <!-- STEP 3 (REVIEW) -->
+      <section id="step3" class="step" aria-labelledby="s3" role="group">
+        <h2 id="s3">Step 3 — Review &amp; Confirm</h2>
+        <div id="reviewBox" class="review-box" aria-live="polite"></div>
+
+        <div class="step-controls">
+          <button id="editBtn" class="btn btn-ghost">⬅ Edit</button>
+          <button id="confirmBtn" class="btn btn-primary">✅ Confirm &amp; Send</button>
+          <div id="sending" class="spinner" aria-hidden="true" style="display:none"></div>
+        </div>
+      </section>
+
+      <!-- Info footer -->
+      <footer class="info-footer" role="contentinfo">
+        <div class="info-col">
+          <h3>About SmartFix electricals</h3>
+          <p>Professional electrical maintenance &amp; installation operating in Accra and surrounding areas.</p>
+        </div>
+        <div class="info-col">
+          <h3>What an Electrician Does</h3>
+          <ul>
+            <li>Diagnose and repair wiring faults</li>
+            <li>Install switches, sockets, lights and fans</li>
+            <li>Rewiring &amp; testing</li>
+            <li>Generators, inverters &amp; solar PV</li>
+          </ul>
+        </div>
+        <div class="info-col">
+          <h3>Contact Us</h3>
+          <p>Phone/WhatsApp: +233 54 389 9210</p>
+          <p>Email: timothytiekuapawu@gmail.com</p>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- RESULT (modal) -->
+  <div id="resultModal" class="result-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="result-card" role="document">
+      <h2 id="resultTitle"></h2>
+      <p id="resultMessage"></p>
+      <p class="countdown">Returning to home in <span id="countdown">10</span>s</p>
+      <div style="margin-top:12px">
+        <button id="manualBack" class="btn btn-ghost">🏠 Back to Home</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

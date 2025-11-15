@@ -1,0 +1,79 @@
+/* ===== Global & backgrounds ===== */
+:root{--accent1:#ffd700;--accent2:#ff8800}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;color:#fff;background:#000}
+.bg-video,.slideshow{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.bg-video{z-index:0}
+.slideshow{z-index:0}
+.slideshow .slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s ease-in-out;filter:none}
+.slideshow .slide.active{opacity:1}
+
+/* overlay */
+.overlay{position:fixed;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.55));z-index:1;pointer-events:none}
+
+/* app container */
+.app{position:relative;z-index:2;min-height:100vh;padding-bottom:60px}
+
+/* common buttons */
+.btn{padding:10px 14px;border-radius:8px;border:none;font-weight:800;cursor:pointer}
+.btn-primary{background:linear-gradient(135deg,var(--accent1),var(--accent2));color:#000}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.12);color:#fff}
+.btn-whatsapp{background:#25D366;color:#fff;padding:10px 14px;border-radius:8px;display:inline-block;text-decoration:none}
+
+/* ===== Welcome screen ===== */
+.welcome-screen{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;min-height:100vh;text-align:center;padding:24px;z-index:2}
+.company-title{font-size:clamp(28px,6vw,48px);color:var(--accent1);font-weight:800}
+.datetime{color:rgba(255,255,255,0.95)}
+
+/* ===== Booking screen & steps ===== */
+.hidden{display:none}
+.booking-screen{display:none;position:relative;min-height:100vh}
+.booking-screen.active{display:block}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:3;padding:18px;text-align:center}
+.top-title{font-weight:800;color:var(--accent1)}
+
+.step{display:none;padding:90px 6vw 160px 6vw;position:relative;min-height:calc(100vh - 200px);z-index:2}
+.step.active{display:block}
+.step h2{margin:0 0 14px 0;color:var(--accent1)}
+
+.step-inner{display:flex;gap:20px;align-items:flex-start;max-width:1100px;margin:0 auto}
+.col-left{flex:1;display:flex;flex-direction:column;gap:12px}
+.col-right{width:240px;display:flex;align-items:flex-start;justify-content:flex-start}
+
+/* inputs */
+label{font-weight:700}
+input,select,textarea{padding:12px;border-radius:8px;border:none;font-size:1rem;background:#fff;color:#111}
+select option{color:#000}
+textarea{min-height:120px;resize:vertical}
+
+/* bottom controls */
+.bottom-center{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;z-index:3}
+.bottom-right{position:fixed;right:18px;bottom:18px;z-index:3}
+
+/* step controls */
+.step-controls{display:flex;gap:12px;margin-top:14px}
+
+/* review */
+.review-box{background:rgba(255,255,255,0.04);padding:12px;border-radius:10px}
+
+/* info footer */
+.info-footer{position:fixed;left:12px;right:12px;bottom:12px;display:flex;gap:12px;z-index:3}
+.info-col{flex:1;background:rgba(0,0,0,0.28);padding:12px;border-radius:10px}
+
+/* result modal */
+.result-modal{display:none;position:fixed;inset:0;z-index:60;align-items:center;justify-content:center;background:rgba(0,0,0,0.45);backdrop-filter:blur(6px)}
+.result-modal.active{display:flex}
+.result-card{background:rgba(255,255,255,0.06);padding:24px;border-radius:12px;text-align:center;color:#fff;max-width:520px}
+.countdown{font-weight:800;margin-top:10px}
+
+/* spinner */
+.spinner{width:36px;height:36px;border-radius:50%;border:5px solid rgba(255,255,255,0.12);border-top-color:var(--accent1);animation:spin 900ms linear infinite;display:inline-block}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* responsive */
+@media (max-width:900px){
+  .step-inner{flex-direction:column}
+  .col-right{width:100%}
+  .info-footer{flex-direction:column;left:8px;right:8px}
+  .bottom-right{right:8px}
+}
