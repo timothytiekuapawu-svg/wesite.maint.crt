@@ -1,7 +1,7 @@
 // --------- CONFIG (replace with your EmailJS keys if you want real sending) ----------
-const EMAILJS_PUBLIC_KEY   = 'ad1dHGUf_gonZ5ERG'; // optional
+const EMAILJS_PUBLIC_KEY   = 'WOFMISqHLM7EhiWpx'; // optional
 const EMAILJS_SERVICE_ID   = 'service_972cf37';
-const EMAILJS_TEMPLATE_ID  = 'template_3epza38';
+const EMAILJS_TEMPLATE_ID  = 'template_8z9mkxm';
 // ----------------------------------------------------------------------------------
 
 // Initialize EmailJS
